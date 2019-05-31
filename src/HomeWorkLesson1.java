@@ -149,7 +149,7 @@ public class HomeWorkLesson1 {
         public static String showMeHomeWork7 (String homework){
         Scanner scanner = new Scanner(System.in);
         if(homework.equals("Y")) {
-            System.out.println("Напоминаем, что високосным считается год кратный 4 и не кратный 100 и 400");
+            System.out.println("Напоминаем, что високосным считается год кратный 4 и кратный 100б, если при этом делится на 400 без остатка");
             System.out.println("Введите год, который Вы хотите проверить :");
             listIntem_7(scanner.nextInt());
         }
