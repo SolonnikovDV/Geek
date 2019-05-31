@@ -19,7 +19,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class HomeWorkLesson1 {
+public class Lesson1 {
 
     public static void main(String[] args) {
         boolean turn = true;
