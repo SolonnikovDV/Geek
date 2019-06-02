@@ -23,3 +23,6 @@ import java.util.Arrays;
 
 
 
+public class Lesson2_HomeWork {
+
+}
