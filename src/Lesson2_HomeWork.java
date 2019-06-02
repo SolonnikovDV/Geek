@@ -24,5 +24,45 @@ import java.util.Arrays;
 
 
 public class Lesson2_HomeWork {
+public static void main(String[] args) {
+        System.out.println(fillRandomInt());
+        invertArray();
+//        System.out.println("Исходный массив " + Arrays.toString(randomArray()));
+//        System.out.println("Перевернутый массив " + Arrays.toString(invertArray()));
+    }
 
+
+    public static int [] invertArray (){
+        int [] array = new int[10];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = fillRandomInt();
+            if (array[i] == 0){
+                array[i] = 1;
+            }else{
+                array[i] = 0;
+            }
+        }
+        return array;
+    }
+    // проверка работы метода invertArray
+    public static int [] checkArrayInvert (){
+        int [] array = new int[10];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = fillRandomInt();
+        }
+        System.out.println(Arrays.toString(array));
+
+        if (array[i] == 0){
+            array[i] = 1;
+        }else{
+            array[i] = 0;
+        }
+    }
+        return array;
+}
+
+    public static int fillRandomInt (){
+        int i = (int) Math.floor(Math.random() * 2);
+        return i;
+    }
 }
