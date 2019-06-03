@@ -1,6 +1,9 @@
-import java.util.Arrays;
-
 /**
+ * Java. Level 1. Lesson 2. Homework doing.
+ *
+ * @autor @Dmitriy Solonnikov
+ * @version dated Jun-03-2019
+ *
  * 1. Задать целочисленный массив, состоящий из элементов 0 и 1. Например: [ 1, 1, 0, 0, 1, 0, 1, 1, 0, 0 ].
  *      С помощью цикла и условия заменить 0 на 1, 1 на 0;
  *
@@ -21,7 +24,7 @@ import java.util.Arrays;
  *      Для усложнения задачи нельзя пользоваться вспомогательными массивами.
  */
 
-
+import java.util.Arrays;
 
 public class Lesson2_HomeWork {
     public static void main(String[] args) {
