@@ -22,3 +22,7 @@
 //        return false;
 //    }
 
+
+public class Lesson4_HW_1 {
+
+}
