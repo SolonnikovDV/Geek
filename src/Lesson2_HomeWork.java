@@ -1,6 +1,9 @@
-import java.util.Arrays;
-
 /**
+ * Java. Level 1. Lesson 2. Homework doing.
+ *
+ * @autor @Dmitriy Solonnikov
+ * @version dated Jun-03-2019
+ *
  * 1. Задать целочисленный массив, состоящий из элементов 0 и 1. Например: [ 1, 1, 0, 0, 1, 0, 1, 1, 0, 0 ].
  *      С помощью цикла и условия заменить 0 на 1, 1 на 0;
  *
@@ -21,8 +24,97 @@ import java.util.Arrays;
  *      Для усложнения задачи нельзя пользоваться вспомогательными массивами.
  */
 
-
+import java.util.Arrays;
 
 public class Lesson2_HomeWork {
+    public static void main(String[] args) {
+        System.out.println("пункт № 1 ДЗ");
+        System.out.println(Arrays.toString(invertArray()) + "\n");
+        System.out.println("пункт № 2 ДЗ");
+        System.out.println(Arrays.toString(fillArray()) + "\n");
+        System.out.println("пункт № 3 ДЗ");
+        System.out.println(Arrays.toString(changeArray()) + "\n");
+        System.out.println("пункт № 4 ДЗ");
+        System.out.println(fillDiagonal() + "\n");
+        System.out.println("пункт № 5 ДЗ");
+        System.out.println(minMax());
+
+    }
+
+
+    public static int [] invertArray (){
+//        int [] array = new int[]{1, 1, 0, 0, 1, 0, 1, 1, 0, 0}; // проверка
+        int[] arr = new int[10];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = fillRandomInt();
+            if (arr[i] == 0) arr[i] = 1;
+            else arr[i] = 0;
+        }
+        return arr;
+    }
+
+    public static int [] fillArray () {
+        int [] arr = new int[8];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = i * 3;
+        }
+        return arr;
+    }
+
+    public static int [] changeArray () {
+        int [] arr = new int[] {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[i] < 6) arr[i] = arr[i] * 2;
+        }
+        return arr;
+    }
+
+    public static int[][] fillDiagonal () {
+        int i, j;
+        int[][] arr = new int[5][5];
+        for (i = 0; i < arr.length; i++) {
+            for (j = 0; j < arr.length; j++) {
+                if(i == j){
+                    arr[i][j] = 1;
+                    arr[arr.length - 1- j][j] = 1;
+                    arr[i][arr.length - 1- i] = 1;
+                }
+                System.out.print(arr[i][j] + "  ");
+            }
+            System.out.println();
+        }
+        return arr;
+    }
+
+    public static int[] minMax (){
+        int min, max;
+        int[] arr = new int[6];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = fillRandomInt2();
+        }
+        System.out.println("Исходный массив: " + Arrays.toString(arr));
+
+        min = max = arr[0];
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[i] < min) min = arr[i];
+            if(arr[i] > max) max = arr[i];
+        }
+
+        System.out.println("Максимальное значение массива: " + max);
+        System.out.println("Минимальное значение массива: " + min);
+        return arr;
+    }
+
+    // вспомогательный метод для генерации случайных чисел в пределах [0 ; 1]
+    public static int fillRandomInt (){
+        int i = (int) Math.floor(Math.random() * 2);
+        return i;
+    }
+
+    // вспомогательный метод для генерации случайных чисел в пределах [0 ; 10]
+    public static int fillRandomInt2 (){
+        int i = (int) Math.floor(Math.random() * 11);
+        return i;
+    }
 
 }
