@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class TicTacToe {
 
-    final int SIZE = 3;
+    final int SIZE = 5;
     final char DOT_EMPTY = '.';
     final char DOT_X = 'x'; // крестиками будет ходить игрок
     final char DOT_O = 'o'; // нулями ходит ИИ
@@ -80,9 +80,9 @@ public class TicTacToe {
         int x, y;
 
         do {
-            System.out.print("Enter 'X' coord in the specified range [1...3]: ");
+            System.out.print("Enter 'X' coord in the specified range [1..." + SIZE + "]: ");
             x = sc.nextInt() - 1; //  уменьшаем значение координаты на единицу, чтобы привести к порядковым номерам массива
-            System.out.print("Enter 'Y' coord in the specified range [1...3]: ");
+            System.out.print("Enter 'Y' coord in the specified range [1..." + SIZE + "]: ");
             y = sc.nextInt() - 1;
 
         } while (!isCellValid(x, y) && isCellFull(x, y));
@@ -132,11 +132,11 @@ public class TicTacToe {
         toRightDiag = true;
         toLeftDiag = true;
 
-        for (int i = 0; i < SIZE; i++) {
+        for (int i = 0; i < SIZE - 1; i++) {
             // накапливаем значение булевой переменной в цикле, если все элементы 'map' по значению совпадают с параметром метода
             // то будевая переменная остается true, если хоть один элемент 'map' != параметру, тогда возвращается false
             toRightDiag = toRightDiag & (map[i][i] == symb);
-            toLeftDiag = toLeftDiag & (map[SIZE - i -1][i] == symb);
+            toLeftDiag = toLeftDiag & (map[(SIZE - 1) - i -1][i] == symb);
         }
         if (toRightDiag) {
             return true;
@@ -155,11 +155,11 @@ public class TicTacToe {
 //        }
 
         // проверка строк и столбцов
-        for (int i = 0; i < SIZE; i++) {
+        for (int i = 0; i < SIZE - 1; i++) {
             line = true;
             collumn = true;
 
-            for (int j = 0; j < SIZE; j++) {
+            for (int j = 0; j < SIZE - 1; j++) {
                 line = line & (map[i][j] == symb);
                 collumn = collumn & (map[j][i] == symb);
             }
