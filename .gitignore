@@ -1,2 +1,8 @@
-*.idea
+*.idea/*
 *.iml
+*.jar
+*.war
+*.ear
+*.class
+*.mtj.tmp/
+
