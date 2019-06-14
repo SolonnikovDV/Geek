@@ -172,12 +172,13 @@ class Employee {
 
     @Override
     public String toString() {
-        return "Employee " + getId() + " [Name: " + getName()
-                + ", Position: " + getPosition()
-                + ", Email: " + getEmail()
-                + ", Phone-number: " + getPosition()
-                + ", Wage: " + getWage()
-                + ", Age: " + getAge()+ "]";
+             return "Employee " + getId() + "    Name: " + getName()
+                + "\n" + "                      Position: " + getPosition()
+                + "\n" + "                      Email: " + getEmail()
+                + "\n" + "                      Phone-number: " + getPosition()
+                + "\n" + "                      Wage: " + getWage()
+                + "\n" + "                      Age: " + getAge()
+                + "\n";
     }
 
     /** конец**/
