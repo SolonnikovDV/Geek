@@ -168,17 +168,18 @@ class Employee {
 // ----- конструктор ----------------//
 
 
-// этот метод передается в класс Employee_Main для способа с массивом
-    void print () {
-        System.out.println(MessageFormat.format(
-                "Employee ID: {0}, \n" +
-                                        "Name: {1}, \n" +
-                                        "Position: {2}, \n" +
-                                        "Email: {3}, \n" +
-                                        "Phone number: {4}, \n" +
-                                        "Wage: {5} \n",
-                getId(), getName(), getPosition(), getEmail(), getPhoneNumber(), getWage(), getAge()
-        ));
+ /** Преобразование формата для вывода информации toString () **/
+
+    @Override
+    public String toString() {
+        return "Employee " + getId() + " [Name: " + getName()
+                + ", Position: " + getPosition()
+                + ", Email: " + getEmail()
+                + ", Phone-number: " + getPosition()
+                + ", Wage: " + getWage()
+                + ", Age: " + getAge()+ "]";
     }
+
+    /** конец**/
 
 }
