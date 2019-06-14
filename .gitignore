@@ -7,3 +7,5 @@
 *.mtj.tmp/
 
 src/CheckMethod.java
+/.idea/
+/HelloWorld.iml
