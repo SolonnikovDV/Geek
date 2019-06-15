@@ -10,3 +10,177 @@
  * Создать массив из 5 сотрудников.
  * С помощью цикла вывести информацию только о сотрудниках старше 40 лет.
  */
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+class GrathInterface extends JFrame {
+
+    static int AGE_LIMIT = 40;
+    static int WIDTH_BUTTON = 250;
+    static int HEIGHT_BUTTON = 50;
+
+
+    public static void main(String[] args) {
+
+//  Через ArrayList в TextField выводится длиннющая строка...
+
+//  С массивом TextField работает удачнее, все элементы выводятся построчно
+        
+        Employee[] employeeList = new Employee[6];
+
+        // созданы элементы массива
+        employeeList[0] = new Employee(
+                101, "Donatello", "engineer", "donatello@tmnt.com", 88003030901L, 20, 2000);
+        employeeList[1] = new Employee(
+                102, "Leonardo", "system administrator", "leonardo@tmnt.com", 88003030902L, 24, 2500);
+        employeeList[2] = new Employee(
+                103, "Michelangelo", "art designer", "michelangelo@tmnt.com", 88003030903L, 18, 1800);
+        employeeList[3] = new Employee(
+                104, "Rafael", "IS analyst", "rafael@tmnt.com", 88003030904L, 23, 1900);
+        employeeList[4] = new Employee(
+                105, "Splinter", "Team lead", "splinter@tmnt.com", 88003030905L, 60, 2100);
+        employeeList[5] = new Employee(
+                106, "Anatoliy", "Pizza delivery man", "delivery@pizza.com", 88003030911L, 45, 300);
+
+
+// Запускается графический интерфейс, принимающий на вход массив, в резльтате которого в TextField выводятся все элементы массива построчно:
+        new GrathInterface(employeeList);
+
+    }
+
+// Конструктор в который передается массив элементов класса Employee:
+    GrathInterface(Employee[] employeeList){
+        setLayout(null);
+        setTitle("Employee List");
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+//      можно создать переменные или напрямую обратиться к объектам (см ниже в setBounds
+//        Toolkit toolkit = Toolkit.getDefaultToolkit();
+//        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+
+        setBounds(  Toolkit.getDefaultToolkit().getScreenSize().width/2 - 250,
+                    Toolkit.getDefaultToolkit().getScreenSize().height/2 - 150, 500, 80);
+
+//  Кнопка вызова сообщения с содежимым массива с данными
+        JButton getListBtn = new JButton("Press to get Employee List");
+        getListBtn.setSize(WIDTH_BUTTON, HEIGHT_BUTTON);
+        getListBtn.setLocation(0,0);
+        add(getListBtn);
+
+//  Кнопка сортировки по возрасту
+        JButton sortByAgeBtn = new JButton("Press to sort by age");
+        sortByAgeBtn.setSize(WIDTH_BUTTON, HEIGHT_BUTTON);
+        sortByAgeBtn.setLocation(250,0);
+        add(sortByAgeBtn);
+
+//  Текстовое поле вызываемое кнопками
+        JTextField textField = new JTextField();
+        textField.setSize(0, 0);
+
+// обработчик нажатия кнопки getListBtn
+        getListBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(textField, employeeList); // в текстовое поле выводтся все элементы массива employeeList
+
+            }
+        });
+
+        sortByAgeBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Employee[] layout = new Employee[employeeList.length - 1];
+                int j = 0;
+                for (int i = 0; i < employeeList.length; i++) {
+
+                    if (employeeList[i].getAge() > AGE_LIMIT) {
+                        layout[j] = employeeList[i];
+                        j++;
+                    }
+                }
+                JOptionPane.showMessageDialog(textField, layout);
+
+            }
+        });
+    }
+}
+
+
+/** Вложенный класс Employee **/
+
+import java.text.MessageFormat;
+
+class Employee {
+    private int id;
+    private String name;
+    private String position;
+    private String email;
+    private long phoneNumber;
+    private int wage;
+    private int age;
+
+// ----- Getters --------------------//
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public long getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public int getWage() {
+        return wage;
+    }
+
+    public int getAge() {
+        return wage;
+    }
+// ----- Getters --------------------//
+
+
+// ----- конструктор ----------------//
+
+    public Employee(int id, String name, String position, String email, long phoneNumber, int wage, int age) {
+        this.id = id;
+        this.name = name;
+        this.position = position;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.wage = wage;
+        this.age = age;
+    }
+// ----- конструктор ----------------//
+
+
+ /** Преобразование формата для вывода информации toString () **/
+
+    @Override
+    public String toString() {
+             return "Employee " + getId() + "    Name: " + getName()
+                + "\n" + "                      Position: " + getPosition()
+                + "\n" + "                      Email: " + getEmail()
+                + "\n" + "                      Phone-number: " + getPosition()
+                + "\n" + "                      Wage: " + getWage()
+                + "\n" + "                      Age: " + getAge()
+                + "\n";
+    }
+
+    /** конец**/
+
+}
